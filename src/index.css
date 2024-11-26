@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  font-family: 'Encode';
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(178,255,248,1) 65%);
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+@font-face {
+  font-family: 'Encode';
+  src: url('../public/fonts/EncodeSansExpanded-Regular.ttf') format('truetype'); /* Update the format if necessary */
+  font-weight: normal; /* You can specify font-weight if you have multiple weights */
+  font-style: normal; /* Specify if the font is italic or normal */
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
