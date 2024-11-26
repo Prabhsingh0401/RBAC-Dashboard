@@ -2,6 +2,8 @@
 
 This is a role-based access control (RBAC) dashboard built with React, Vite, and TailwindCSS. The dashboard is fully responsive, adapts to different screen sizes, and handles most edge cases. It includes user authentication and different permission levels for managing users and roles.
 
+<img src="https://skillicons.dev/icons?i=react,vite,tailwind" />
+
 ## Prerequisites
 
 Before running the project, make sure you have the following installed:
