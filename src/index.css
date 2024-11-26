@@ -10,6 +10,7 @@
   scrollbar-width: none;
 }
 
+
 @font-face {
   font-family: 'Encode';
   src: url('../public/fonts/EncodeSansExpanded-Regular.ttf') format('truetype'); /* Update the format if necessary */

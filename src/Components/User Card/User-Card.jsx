@@ -126,34 +126,34 @@ export function UserCard() {
       )}
 
       {/* Filter buttons */}
-      <div className="lg:flex inline gap-2 mb-4">
-        <button
-          className={`py-2 px-4 rounded-[20px] ${filter === "all" ? "bg-black text-white" : "bg-gray-200 text-black"}`}
-          onClick={() => setFilter("all")}
-        >
-          See All
-        </button>
-        <button
-          className={`py-2 px-4 rounded-[20px] ${filter === "active" ? "bg-black text-white" : "bg-white text-black"}`}
-          onClick={() => setFilter("active")}
-        >
-          Active Users
-        </button>
-        <button
-          className={`py-2 px-4 rounded-[20px] ${filter === "inactive" ? "bg-black text-white" : "bg-white text-black"}`}
-          onClick={() => setFilter("inactive")}
-        >
-          Inactive Users
-        </button>
+      <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-2 mb-4 lg:flex lg:gap-4 w-[80vw]">
+      <button
+        className={`py-2 px-4 rounded-[20px] ${filter === "all" ? "bg-black text-white" : "bg-gray-200 text-black"}`}
+        onClick={() => setFilter("all")}
+      >
+        See All
+      </button>
+      <button
+        className={`py-2 px-4 rounded-[20px] ${filter === "active" ? "bg-black text-white" : "bg-white text-black"}`}
+        onClick={() => setFilter("active")}
+      >
+        Active Users
+      </button>
+      <button
+        className={`py-2 px-4 rounded-[20px] ${filter === "inactive" ? "bg-black text-white" : "bg-white text-black"}`}
+        onClick={() => setFilter("inactive")}
+      >
+        Inactive Users
+      </button>
 
-        {/* Add New User Button */}
-        <button
-          className="py-2 px-4 rounded-[20px] bg-green-500 text-white"
-          onClick={() => setShowAddUser(true)}
-        >
-          Add New User
-        </button>
-      </div>
+      {/* Add New User Button */}
+      <button
+        className="py-2 px-4 rounded-[20px] bg-green-500 text-white"
+        onClick={() => setShowAddUser(true)}
+      >
+        Add New User
+      </button>
+    </div>
 
       {/* Add User Component */}
       {showAddUser && <AddUser onAddUser={addUser} onClose={() => setShowAddUser(false)} />}
