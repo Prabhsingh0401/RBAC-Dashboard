@@ -79,7 +79,7 @@ export default function AddUser({ onAddUser, onClose }) {
   return (
     <>
       {isFormVisible && (
-        <div className="flex absolute 3xl:mt-[-25vh] xl:mt-[-31vh] ml-[3vw] z-[999] bg-white/90 w-[75vw] sm:mt-[-10vh] lg:mt-[-20vh] rounded-[20px] p-6">
+        <div className="flex absolute 3xl:mt-[-25vh] 2xl:mt-[-18vh] xl:mt-[-20vh] z-[999] bg-white/90 w-[75vw]  sm:mt-[-20vh] lg:mt-[-18vh] mt-[-30vh] rounded-[20px] p-6">
           <div className="flex flex-col w-[70vw]">
             <div className="mb-2">
               <h1 className="text-3xl font-bold">Add Users</h1>
