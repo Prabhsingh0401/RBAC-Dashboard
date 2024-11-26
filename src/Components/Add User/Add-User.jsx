@@ -23,25 +23,57 @@ export default function AddUser({ onAddUser, onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      !formData.title ||
-      !formData.name ||
-      !formData.department ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.empId ||
-      !formData.dob ||
-      !formData.status ||
-      !formData.permissions
-    ) {
-      alert("Please fill in all required fields.");
+
+    // Validation: Check for empty fields
+    for (const key in formData) {
+      if (!formData[key] && key !== "image") {
+        alert(`Please fill in the required field: ${key}`);
+        return;
+      }
+    }
+
+    // Validation: Ensure email is valid
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(formData.email)) {
+      alert("Please enter a valid email address.");
       return;
     }
+
+    // Validation: Ensure phone number is valid (numeric only)
+    const phonePattern = /^[0-9]+$/;
+    if (!phonePattern.test(formData.phone)) {
+      alert("Phone number must contain only numeric characters.");
+      return;
+    }
+
+    // Validation: Ensure date of birth is not in the future
+    const currentDate = new Date();
+    const dobDate = new Date(formData.dob);
+    if (dobDate > currentDate) {
+      alert("Date of Birth cannot be in the future.");
+      return;
+    }
+
     const newUser = {
       id: Date.now(),
       ...formData,
     };
+
     onAddUser(newUser);
+    setFormData({
+      title: "",
+      name: "",
+      department: "",
+      image: "",
+      status: "",
+      email: "",
+      phone: "",
+      empId: "",
+      dob: "",
+      permissions: "",
+    }); // Reset form data after submission
+    setIsFormVisible(false);
+    alert("User successfully added!");
   };
 
   return (

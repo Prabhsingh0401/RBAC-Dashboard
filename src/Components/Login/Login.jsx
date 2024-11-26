@@ -14,12 +14,27 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // Email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const handleLogin = (e) => {
     e.preventDefault();
 
     // Check if fields are empty
     if (!email || !password) {
       setError("Please fill in all the fields.");
+      return;
+    }
+
+    // Validate email format
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    // Check password length
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
       return;
     }
 
@@ -43,7 +58,10 @@ export default function Login() {
             id="email"
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (error) setError(""); // Clear error on input change
+            }}
             className="w-full bg-[rgba(223,222,222,1)] font-semibold px-3 py-2 mt-1 rounded-[10px] focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
@@ -53,7 +71,10 @@ export default function Login() {
             id="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              if (error) setError(""); // Clear error on input change
+            }}
             className="w-full bg-[rgba(223,222,222,1)] font-semibold px-3 py-2 mt-1 rounded-[10px] focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
